@@ -8,13 +8,15 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
+    <link href="~/css/StyleSheet.css" rel="stylesheet" />
     <title>Details</title>
 </head>
 <body>
     <h3>Name: @Model.Name</h3>
     <p>Description: @Model.Description</p>
     <p>Instructor: <a href="/Instructor/Details/@Model.InstructorId">@Model.Instructor.Name</a></p>
-    <a href="/Course/Index">Index</a>
-    <a href="/Course/Update/@Model.Id">Edit this course</a>
+    <a class="block" href="/Course/Index">Course Index</a>
+    <a class="block" href="/Course/Update/@Model.Id">Edit this course</a>
+    <a class="block" href="/Course/Delete/@Model.Id">Delete this course</a>
 </body>
 </html>

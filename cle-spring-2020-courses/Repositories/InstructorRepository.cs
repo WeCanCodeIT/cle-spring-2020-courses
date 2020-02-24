@@ -20,6 +20,11 @@ namespace cle_spring_2020_courses.Repositories
             throw new NotImplementedException();
         }
 
+        public void Delete(Instructor obj)
+        {
+            throw new NotImplementedException();
+        }
+
         public IEnumerable<Instructor> GetAll()
         {
             return db.Instructors;

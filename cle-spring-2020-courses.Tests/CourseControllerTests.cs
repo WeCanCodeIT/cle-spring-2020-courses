@@ -4,16 +4,21 @@ using Microsoft.AspNetCore.Mvc;
 using cle_spring_2020_courses.Controllers;
 using cle_spring_2020_courses.Models;
 using System.Collections.Generic;
+using NSubstitute;
+using cle_spring_2020_courses.Repositories;
 
 namespace cle_spring_2020_courses.Tests
 {
     public class CourseControllerTests
     {
         CourseController controller;
+        IRepository<Course> courseRepo;
         
         public CourseControllerTests()
         {
             // controller = new CourseController();
+            courseRepo = Substitute.For<IRepository<Course>>();
+            controller = new CourseController(courseRepo);
         }
 
         [Fact]

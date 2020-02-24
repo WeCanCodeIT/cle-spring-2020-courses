@@ -33,19 +33,12 @@ namespace cle_spring_2020_courses.Controllers
             courseRepo.Create(course);
             return RedirectToAction("Index");
         }
-        
-        public ViewResult Index()
-        {
-            var model = courseRepo.GetAll();
-            
-            return View(model);
-        }
 
-        public ViewResult Details(int id)
+        [HttpGet]
+        public ViewResult CreateByInstructorId(int id)
         {
-            Course model = courseRepo.GetById(id);
-
-            return View(model);
+            ViewBag.InstructorId = id;
+            return View();
         }
 
         [HttpGet]
@@ -67,5 +60,36 @@ namespace cle_spring_2020_courses.Controllers
 
             return RedirectToAction("Details", "Instructor", new { id = course.InstructorId });
         }
+
+        [HttpGet]
+        public ViewResult Delete(int id)
+        {
+            var model = courseRepo.GetById(id);
+
+            return View(model);
+        }
+
+        [HttpPost]
+        public ActionResult Delete(Course course)
+        {
+            courseRepo.Delete(course);
+
+            return RedirectToAction("Index");
+        }
+
+        public ViewResult Index()
+        {
+            var model = courseRepo.GetAll();
+            
+            return View(model);
+        }
+
+        public ViewResult Details(int id)
+        {
+            Course model = courseRepo.GetById(id);
+
+            return View(model);
+        }
+
     }
 }

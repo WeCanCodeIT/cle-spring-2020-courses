@@ -26,6 +26,10 @@ namespace cle_spring_2020_courses.Controllers
         [HttpPost]
         public ActionResult Create(Course course)
         {
+            if (!ModelState.IsValid)
+            {
+                return View();
+            }
             courseRepo.Create(course);
             return RedirectToAction("Index");
         }
@@ -42,6 +46,26 @@ namespace cle_spring_2020_courses.Controllers
             Course model = courseRepo.GetById(id);
 
             return View(model);
+        }
+
+        [HttpGet]
+        public ViewResult Update(int id)
+        {
+            Course model = courseRepo.GetById(id);
+
+            return View(model);
+        }
+
+        [HttpPost]
+        public ActionResult Update(Course course)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View();
+            }
+            courseRepo.Update(course);
+
+            return RedirectToAction("Details", "Instructor", new { id = course.InstructorId });
         }
     }
 }

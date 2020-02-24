@@ -10,5 +10,6 @@ namespace cle_spring_2020_courses.Repositories
         IEnumerable<T> GetAll();
         T GetById(int id);
         void Create(T obj);
+        void Update(T obj);
     }
 }

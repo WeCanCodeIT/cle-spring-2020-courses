@@ -29,5 +29,10 @@ namespace cle_spring_2020_courses.Repositories
         {
             return db.Instructors.Single(i => i.Id == id);
         }
+
+        public void Update(Instructor obj)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

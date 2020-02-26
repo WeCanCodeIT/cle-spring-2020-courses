@@ -2,15 +2,17 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using cle_spring_2020_courses;
 
 namespace cle_spring_2020_courses.Migrations
 {
     [DbContext(typeof(UniversityContext))]
-    partial class UniversityContextModelSnapshot : ModelSnapshot
+    [Migration("20200226211658_StudentCourseLinkingTable")]
+    partial class StudentCourseLinkingTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -105,23 +107,6 @@ namespace cle_spring_2020_courses.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Student");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Name = "Ferris Bueller"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Name = "Cameron Frye"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Name = "Sloane Peterson"
-                        });
                 });
 
             modelBuilder.Entity("cle_spring_2020_courses.Models.StudentCourse", b =>
@@ -144,44 +129,6 @@ namespace cle_spring_2020_courses.Migrations
                     b.HasIndex("StudentId");
 
                     b.ToTable("StudentCourse");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            CourseId = 1,
-                            StudentId = 1
-                        },
-                        new
-                        {
-                            Id = 2,
-                            CourseId = 1,
-                            StudentId = 2
-                        },
-                        new
-                        {
-                            Id = 3,
-                            CourseId = 2,
-                            StudentId = 2
-                        },
-                        new
-                        {
-                            Id = 4,
-                            CourseId = 2,
-                            StudentId = 3
-                        },
-                        new
-                        {
-                            Id = 5,
-                            CourseId = 3,
-                            StudentId = 1
-                        },
-                        new
-                        {
-                            Id = 6,
-                            CourseId = 3,
-                            StudentId = 3
-                        });
                 });
 
             modelBuilder.Entity("cle_spring_2020_courses.Models.Course", b =>

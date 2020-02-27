@@ -12,6 +12,8 @@ namespace cle_spring_2020_courses
         public DbSet<Course> Courses { get; set; }
         public DbSet<Instructor> Instructors { get; set; }
 
+        public DbSet<StudentCourse> StudentCourses { get; set; }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             var connectionString = "Server=(localdb)\\mssqllocaldb;Database=UniversityDB_Spring20;Trusted_Connection=True;";

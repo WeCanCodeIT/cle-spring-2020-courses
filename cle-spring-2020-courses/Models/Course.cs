@@ -18,6 +18,8 @@ namespace cle_spring_2020_courses.Models
         [Display(Name = "Choose an instructor: ")]
         public virtual int InstructorId { get; set; }
 
+        public virtual List<StudentCourse> StudentCourses { get; set; }
+
 
         public Course()
         {
